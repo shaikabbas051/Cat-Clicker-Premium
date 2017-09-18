@@ -68,11 +68,12 @@ function loadcat(){
 				//empty the previous elements to append the fresh content
 				$('#elements').empty();
 				//append the Cat name, image and score.
-				$('#elements').append('<h2>Meet <span>"'+catname+'"</span></h2>');
+				$('#elements').append('<h2>Meet "<span>'+catname+'</span>"</h2>');
 				$('#elements').append('<img id= "'+catname+'"src="'+catimage+'">');
-				$('#elements').append('<h3 id="runs">'+catscore+'</h3>');
+				$('#elements').append('<h3 id="runs">You Clicked "<span>'+catscore+'</span>"times</h3>');
 				};
-		})(cats[i].name,cats[i].image,cats[i].score));
+				})(cats[i].name,cats[i].image,cats[i].score));
+
 
 		//increment the score
 		$('img').addEventListener("click",(function(catscore){
@@ -81,7 +82,7 @@ function loadcat(){
 			$('#catscore').text(catscore);
 			};
 			})(cats[i].score));
-		
+
 	};
 };
 loadcat();
