@@ -1,0 +1,83 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Cat clicker Premium</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<style type="text/css">
+		span{
+	color:red;
+		}
+		img{
+			width: 50%;
+			height: 400px;
+		}
+	</style>
+</head>
+<body>
+	<div>
+		<h1>Cat Clicker Premium</h1>
+	</div>
+	<div id="button"></div>
+	<div id="elements"></div>
+
+<script src="libs/jquery.min.js"></script>
+<script type="text/javascript">
+function loadcat(){
+	//array of cat elements 
+	var kitten = ["Cat1","Cat2","Cat3","Cat4","Cat5"];
+	//declaring the array of objects 
+	var cats = [{
+				name: "Anne",
+				image: "images/cat.jpg",
+				score: 0
+				},
+				{
+				name: "Beca",
+				image: "images/cat1.jpg",
+				score: 0
+				},
+				{
+				name: "Cary",
+				image: "images/cat2.jpg",
+				score: 0
+				},
+				{
+				name: "Dani",
+				image: "images/cat3.jpg",
+				score: 0
+				},
+				{
+				name: "Erie",
+				image: "images/cat4.jpg",
+				score: 0
+				}];
+
+	for(var i = 0; i < cats.length; i++){
+		//print the initial elements 
+		var elem = document.createElement('BUTTON');
+		var t = document.createTextNode(kitten[i]);
+		elem.appendChild(t);
+		$('#button').append(elem);
+		$('#button').append(" ");
+		//when the button element(containing the cat numbers) is clicked perform the following action:
+			elem.addEventListener("click",(function(catname,catimage,catscore){
+				return function(){
+				//empty the previous elements to append the fresh content
+				$('#elements').empty();
+				//append the Cat name, image and score.
+				$('#elements').append('<h2>Meet <span>"'+catname+'"</span></h2>');
+				$('#elements').append('<img id= "'+catname+'"src="'+catimage+'">');
+				$('#elements').append('<h3 id="runs">'+catscore+'</h3>');
+				};
+		})(cats[i].name,cats[i].image,cats[i].score));
+	};
+
+
+};
+loadcat();
+</script>
+</body>
+</html>
