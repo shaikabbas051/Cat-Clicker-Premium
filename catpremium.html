@@ -63,25 +63,28 @@ function loadcat(){
 		$('#button').append(elem);
 		$('#button').append(" ");
 		//when the button element(containing the cat numbers) is clicked perform the following action:
-			elem.addEventListener("click",(function(catname,catimage,catscore){
+			elem.addEventListener("click",(function(catobject){
 				return function(){
 				//empty the previous elements to append the fresh content
-				$('#elements').empty();
-				//append the Cat name, image and score.
-				$('#elements').append('<h2>Meet "<span>'+catname+'</span>"</h2>');
-				$('#elements').append('<img id= "'+catname+'"src="'+catimage+'">');
-				$('#elements').append('<h3 id="runs">You Clicked "<span>'+catscore+'</span>"times</h3>');
+					$('#elements').empty();
+					//append the Cat name, image and score.
+					$('#elements').append('<h2>Meet "<span>'+catobject.name+'</span>"</h2>');
+					$('#elements').append('<img id= "'+catobject.name+'"src="'+catobject.image+'">');
+					$('#elements').append('<h3 id="runs">You Clicked "<span id="catscore">'+catobject.score+'</span>"times"</h3>');
+
+				//increase the score, when image is clicked
+					$('img').on("click",(function(cat){
+						return function(){
+
+			                cat.score += 1;
+			                $('#catscore').text(cat.score);
+			                console.log(cat.score);
+
+						};
+					})(catobject));//(catpbject = cat), declaring outside
+
 				};
-				})(cats[i].name,cats[i].image,cats[i].score));
-
-
-		//increment the score
-		$('img').addEventListener("click",(function(catscore){
-			return function(){
-			catscore += 1;
-			$('#catscore').text(catscore);
-			};
-			})(cats[i].score));
+			})(cats[i]));//declare the outside part in the function itself (cats[i] = catobject)
 
 	};
 };
