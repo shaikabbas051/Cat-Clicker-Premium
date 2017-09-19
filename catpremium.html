@@ -6,89 +6,19 @@
 	<title>Cat clicker Premium</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<meta charset="utf-8">
-	<style type="text/css">
-		span{
-	color:red;
-		}
-		img{
-			width: 50%;
-			height: 400px;
-		}
-	</style>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
+	<div id="centre">
 	<div>
 		<h1>Cat Clicker Premium</h1>
 	</div>
 	<div id="button"></div>
 	<div id="elements"></div>
+</div>
 
-<script src="libs/jquery.min.js"></script>
-<script type="text/javascript">
-function loadcat(){
-	//array of cat elements 
-	var kitten = ["Cat1","Cat2","Cat3","Cat4","Cat5"];
-	//declaring the array of objects 
-	var cats = [{
-				name: "Anne",
-				image: "images/cat.jpg",
-				score: 0
-				},
-				{
-				name: "Beca",
-				image: "images/cat1.jpg",
-				score: 0
-				},
-				{
-				name: "Cary",
-				image: "images/cat2.jpg",
-				score: 0
-				},
-				{
-				name: "Dani",
-				image: "images/cat3.jpg",
-				score: 0
-				},
-				{
-				name: "Erie",
-				image: "images/cat4.jpg",
-				score: 0
-				}];
+<script src="js/jquery.min.js"></script>
+<script src="js/app.js" ></script>
 
-	for(var i = 0; i < cats.length; i++){
-		//print the initial elements 
-		var elem = document.createElement('BUTTON');
-		var t = document.createTextNode(kitten[i]);
-		elem.appendChild(t);
-		$('#button').append(elem);
-		$('#button').append(" ");
-		//when the button element(containing the cat numbers) is clicked perform the following action:
-			elem.addEventListener("click",(function(catobject){
-				return function(){
-				//empty the previous elements to append the fresh content
-					$('#elements').empty();
-					//append the Cat name, image and score.
-					$('#elements').append('<h2>Meet "<span>'+catobject.name+'</span>"</h2>');
-					$('#elements').append('<img id= "'+catobject.name+'"src="'+catobject.image+'">');
-					$('#elements').append('<h3 id="runs">You Clicked "<span id="catscore">'+catobject.score+'</span>"times"</h3>');
-
-				//increase the score, when image is clicked
-					$('img').on("click",(function(cat){
-						return function(){
-
-			                cat.score += 1;
-			                $('#catscore').text(cat.score);
-			                console.log(cat.score);
-
-						};
-					})(catobject));//(catpbject = cat), declaring outside
-
-				};
-			})(cats[i]));//declare the outside part in the function itself (cats[i] = catobject)
-
-	};
-};
-loadcat();
-</script>
 </body>
 </html>
