@@ -1,2 +1,2 @@
-# Cat-Clicker-Premium
-Display different cats when clicked the buttons
+# What is cat clicker Premium?
+The page shows the list of cat names. When you click any name the respective image is displayed along with the name and your click score. When you click the cat image the your counter is increased by 1.

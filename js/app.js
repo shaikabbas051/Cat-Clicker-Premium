@@ -1,6 +1,6 @@
 function loadcat(){
 	//array of cat elements 
-	var kitten = ["Cat1","Cat2","Cat3","Cat4","Cat5"];
+	var kitten = ["Cat 1","Cat 2","Cat 3","Cat 4","Cat 5"];
 	//declaring the array of objects 
 	var cats = [{
 				name: "Anne",
