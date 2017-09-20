@@ -4,27 +4,27 @@ function loadcat(){
 	//declaring the array of objects 
 	var cats = [{
 				name: "Anne",
-				image: "images/cat.jpg",
-				score: 0
-				},
-				{
-				name: "Beca",
 				image: "images/cat1.jpg",
 				score: 0
 				},
 				{
-				name: "Cary",
-				image: "images/cat2.jpg",
+				name: "Beca",
+				image: "images/cat2.jpeg",
 				score: 0
 				},
 				{
-				name: "Dani",
+				name: "Cary",
 				image: "images/cat3.jpg",
 				score: 0
 				},
 				{
-				name: "Erie",
+				name: "Dani",
 				image: "images/cat4.jpg",
+				score: 0
+				},
+				{
+				name: "Erie",
+				image: "images/cat5.jpg",
 				score: 0
 				}];
 
